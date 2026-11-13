@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="शहडोल जिले की जानकारी, पर्यटन, नागरिक सेवाएँ और महत्वपूर्ण लिंक।">
+  <title>जिला शहडोल | District Shahdol</title>
+  <style>
+    :root{--brown:#674400;--gold:#a97808;--cream:#fff0d2;--ink:#171717;--muted:#666;--line:#ddd}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none} button,input{font:inherit}
+    .topline{height:25px;border-bottom:1px solid #ccc;font-size:12px;display:flex;align-items:center;justify-content:center;gap:12px;background:#fafafa}
+    .topline .flag{font-size:19px}
+    .masthead{max-width:1160px;margin:auto;min-height:112px;padding:16px 12px;display:grid;grid-template-columns:1fr minmax(260px,440px) 1fr;align-items:center;gap:24px}
+    .brand{display:flex;align-items:center;gap:14px}.seal{width:72px;height:72px;border:4px double #d3a000;border-radius:50%;background:radial-gradient(circle,#168444 0 48%,#f6d65b 49% 56%,#fff 57%);display:grid;place-items:center;color:#fff;font-size:27px;text-shadow:0 1px 2px #333}
+    .brand-hi{font-size:21px}.brand-en{font-size:21px;font-weight:700}
+    .search{display:flex;border:2px solid #bbb;border-bottom:4px solid var(--brown);border-radius:12px 12px 0 0;overflow:hidden;height:49px}
+    .search input{border:0;outline:0;padding:0 12px;flex:1;min-width:0}.search button{border:0;background:white;padding:0 15px;cursor:pointer;font-size:20px}
+    .digital{justify-self:end;color:#287b50;font-weight:700;font-size:16px;text-align:center}.digital small{display:block;color:#555;font-weight:400;font-size:10px}
+    nav{border-top:1px solid #ccc;border-bottom:1px solid #ccc;background:#fff;position:sticky;top:0;z-index:10}
+    .navinner{max-width:1160px;margin:auto;display:flex;align-items:stretch;min-height:42px;gap:0}
+    .navinner>a,.navbtn{padding:12px 13px;font-size:14px;white-space:nowrap;border:0;background:none;cursor:pointer}
+    .navinner>a:hover,.navbtn:hover{background:#f6ead3;color:var(--brown)}.navinner .active{background:var(--brown);color:white}
+    .hamb{display:none;margin-left:auto;font-size:25px;padding:3px 14px;background:none;border:0}
+    .hero{max-width:1600px;margin:auto;position:relative;height:450px;overflow:hidden;background:#ddd}
+    .slides{height:100%;display:flex;transition:transform .55s ease}.slide{min-width:100%;height:100%;position:relative;background-size:cover;background-position:center}
+    .slide:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+    .slide-caption{position:absolute;z-index:1;bottom:25px;left:max(5%,calc((100% - 1160px)/2));color:white;font-size:28px;font-weight:700;text-shadow:0 2px 4px #222}
+    .hero-controls{position:absolute;right:7%;bottom:22px;z-index:2;display:flex;gap:8px}.hero-controls button{border:0;background:#fff;border-radius:3px;width:42px;height:40px;font-size:22px;cursor:pointer}
+    .ticker{max-width:1160px;margin:28px auto 0;display:flex;align-items:stretch;background:var(--cream);border-radius:5px;overflow:hidden;min-height:54px}
+    .ticker strong{background:var(--brown);color:#fff;padding:13px 28px;font-size:21px;min-width:210px;text-align:center;clip-path:polygon(0 0,96% 0,100% 50%,96% 100%,0 100%)}
+    .ticker p{padding:0 18px;margin:auto 0;flex:1;font-size:15px}.ticker button{border:0;background:#fff;margin:7px 4px;padding:0 13px;color:var(--brown);font-size:20px;cursor:pointer}
+    .quicklinks{max-width:1160px;margin:50px auto 42px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative}
+    .quicklinks:before{content:"";position:absolute;left:0;right:0;top:34px;height:50px;background:#dfa936;z-index:-1}
+    .quick{background:#fff;box-shadow:0 2px 15px #0002;border-radius:7px;min-height:85px;display:grid;place-items:center;text-align:center;padding:15px;font-size:19px;font-weight:700;transition:.2s}
+    .quick:hover{transform:translateY(-4px);color:var(--gold)}
+    .section{max-width:1160px;margin:0 auto 55px;padding:0 12px}.section-title{font-size:27px;margin:0 0 22px;border-left:6px solid var(--gold);padding-left:13px}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.about-grid p{line-height:1.9;color:#444}.about-img{width:100%;height:270px;object-fit:cover;border-radius:8px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.info-card{border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;box-shadow:0 2px 10px #0000000d}.info-card img{width:100%;height:180px;object-fit:cover}.info-card h3{margin:14px 16px 6px;font-size:19px}.info-card p{margin:0 16px 16px;color:#555;line-height:1.7;font-size:14px}.read{display:inline-block;margin:0 16px 17px;color:var(--brown);font-weight:700}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.service{padding:22px 12px;border:1px solid #e6e0d4;border-radius:8px;text-align:center;background:#fffaf0}.service .ico{font-size:30px}.service h3{font-size:17px;margin:10px 0 4px}.service p{font-size:13px;color:#666;margin:0}
+    footer{background:#28231a;color:#eee;padding:35px 15px 18px}.foot{max-width:1160px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot h3{color:#f0c66c}.foot p,.foot a{font-size:14px;color:#ddd;line-height:1.9}.copyright{text-align:center;border-top:1px solid #554c3b;margin:25px auto 0;padding-top:16px;font-size:12px;color:#ccc;max-width:1160px}
+    .toTop{position:fixed;right:25px;bottom:25px;width:43px;height:43px;border:0;border-radius:50%;background:#9b6900;color:white;font-size:22px;box-shadow:0 2px 10px #0004;cursor:pointer;z-index:8}
+    @media(max-width:900px){.masthead{grid-template-columns:1fr 1fr}.search{grid-column:1/-1;grid-row:2}.digital{grid-column:2;grid-row:1}.navinner{flex-wrap:wrap}.navinner>a,.navbtn{display:none}.navinner.open>a,.navinner.open .navbtn{display:block;width:100%;text-align:left}.hamb{display:block}.hero{height:350px}.quicklinks{grid-template-columns:repeat(3,1fr);padding:0 12px}.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.topline{font-size:10px}.masthead{gap:10px;min-height:95px}.seal{width:55px;height:55px;font-size:21px}.brand-hi,.brand-en{font-size:16px}.digital{font-size:13px}.hero{height:270px}.slide-caption{font-size:22px;left:18px}.ticker{margin:18px 12px 0}.ticker strong{min-width:112px;font-size:16px;padding:13px 9px}.ticker p{font-size:12px;padding:0 8px}.ticker button{padding:0 7px}.quicklinks{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}.quick{font-size:16px;min-height:75px}.about-grid,.cards,.foot{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.section-title{font-size:23px}}
+  </style>
+</head>
+<body>
+  <div class="topline"><span class="flag">🇮🇳</span> मध्यप्रदेश शासन <span>Government of Madhya Pradesh</span></div>
+  <header class="masthead">
+    <a class="brand" href="#">
+      <div class="seal" aria-hidden="true">श</div>
+      <div><div class="brand-hi">जिला शहडोल</div><div class="brand-en">District Shahdol</div></div>
+    </a>
+    <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="खोजें / Search..." aria-label="Search"><button aria-label="खोजें">⌕</button></form>
+    <div class="digital">Digital India<small>Power To Empower</small></div>
+  </header>
+
+  <nav>
+    <div class="navinner" id="navinner">
+      <a class="active" href="#home">मुख्य पृष्ठ</a>
+      <a href="#about">जिले के बारे में</a><a href="#services">नागरिक सेवाएँ</a>
+      <a href="#tourism">पर्यटन स्थल</a><a href="#news">समाचार</a>
+      <a href="#contact">संपर्क करें</a><button class="hamb" id="hamb" aria-label="मेन्यू खोलें">☰</button>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero" aria-label="शहडोल की झलक">
+      <div class="slides" id="slides">
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1606293926075-69a00db9f6c8?auto=format&fit=crop&w=1800&q=85')"><div class="slide-caption">शहडोल — संस्कृति और विरासत</div></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85')"><div class="slide-caption">प्राकृतिक सुंदरता का अनुभव</div></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85')"><div class="slide-caption">आइए, शहडोल को जानें</div></div>
+      </div>
+      <div class="hero-controls"><button id="prev" aria-label="पिछली स्लाइड">‹</button><button id="pause" aria-label="रोकें">Ⅱ</button><button id="next" aria-label="अगली स्लाइड">›</button></div>
+    </section>
+
+    <div class="ticker" id="news"><strong>ताज़ा खबर</strong><p id="newsText">जिला शहडोल की आधिकारिक सूचनाएँ, घोषणाएँ और नवीनतम समाचार यहाँ प्रदर्शित होंगे।</p><button id="newsPrev" aria-label="पिछली खबर">‹</button><button id="newsNext" aria-label="अगली खबर">›</button></div>
+
+    <section class="quicklinks" aria-label="महत्वपूर्ण लिंक">
+      <a class="quick" href="#services">ई-ऑफिस</a><a class="quick" href="#contact">टेलीफोन डायरेक्टरी</a>
+      <a class="quick" href="#tourism">पर्यटन स्थल</a><a class="quick" href="#services">CEO मध्य प्रदेश</a>
+      <a class="quick" href="#services">चुनाव आयोग</a>
+    </section>
+
+    <section class="section" id="about">
+      <h2 class="section-title">शहडोल जिले के बारे में</h2>
+      <div class="about-grid">
+        <div><p>मध्यप्रदेश के पूर्वी भाग में स्थित शहडोल अपनी प्राकृतिक सुंदरता, ऐतिहासिक धरोहरों और समृद्ध स्थानीय संस्कृति के लिए जाना जाता है। यह वेबसाइट जिले के नागरिकों, विद्यार्थियों और पर्यटकों को उपयोगी जानकारी एक ही स्थान पर उपलब्ध कराने के उद्देश्य से बनाई गई एक डेमो वेबसाइट है।</p><p>यहाँ आप जिले के परिचय, पर्यटन स्थलों, नागरिक सेवाओं, महत्वपूर्ण संपर्कों और समाचारों से जुड़ी जानकारी देख सकते हैं।</p></div>
+        <img class="about-img" src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1000&q=80" alt="ऐतिहासिक इमारत">
+      </div>
+    </section>
+
+    <section class="section" id="tourism">
+      <h2 class="section-title">प्रमुख पर्यटन स्थल</h2>
+      <div class="cards">
+        <article class="info-card"><img src="https://images.unsplash.com/photo-1606293926075-69a00db9f6c8?auto=format&fit=crop&w=800&q=80" alt="मंदिर और विरासत"><h3>विरासत स्थल</h3><p>शहडोल और आसपास के ऐतिहासिक एवं सांस्कृतिक स्थलों को जानें।</p><a class="read" href="#contact">और जानें →</a></article>
+        <article class="info-card"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="हरे-भरे जंगल"><h3>प्राकृतिक स्थल</h3><p>जिले के आसपास के हरित क्षेत्रों और प्राकृतिक सौंदर्य का आनंद लें।</p><a class="read" href="#contact">और जानें →</a></article>
+        <article class="info-card"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="पहाड़ों का दृश्य"><h3>घूमने की जगहें</h3><p>अपनी यात्रा की योजना बनाने के लिए स्थानीय पर्यटन जानकारी देखें।</p><a class="read" href="#contact">और जानें →</a></article>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2 class="section-title">नागरिक सेवाएँ और महत्वपूर्ण जानकारी</h2>
+      <div class="services">
+        <a class="service" href="#contact"><div class="ico">📄</div><h3>प्रमाण पत्र</h3><p>आवेदन एवं प्रमाण पत्र संबंधी जानकारी</p></a>
+        <a class="service" href="#contact"><div class="ico">🏢</div><h3>विभाग एवं कार्यालय</h3><p>जिला कार्यालयों की जानकारी</p></a>
+        <a class="service" href="#contact"><div class="ico">☎️</div><h3>हेल्पलाइन</h3><p>महत्वपूर्ण संपर्क नंबर</p></a>
+        <a class="service" href="#contact"><div class="ico">📢</div><h3>सूचना एवं आदेश</h3><p>नोटिस और सार्वजनिक सूचनाएँ</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="foot">
+      <div><h3>जिला शहडोल</h3><p>शहडोल, मध्यप्रदेश, भारत<br>यह एक स्वतंत्र डेमो वेबसाइट टेम्पलेट है। सरकारी वेबसाइट नहीं है।</p></div>
+      <div><h3>त्वरित लिंक</h3><p><a href="#about">जिले के बारे में</a><br><a href="#tourism">पर्यटन स्थल</a><br><a href="#services">नागरिक सेवाएँ</a></p></div>
+      <div><h3>संपर्क जानकारी</h3><p>कलेक्टर कार्यालय, शहडोल<br>सटीक फोन नंबर और ईमेल प्रकाशित करने से पहले सत्यापित करें।</p></div>
+    </div>
+    <div class="copyright">© 2026 District Shahdol Demo Website. सभी अधिकार सुरक्षित।</div>
+  </footer>
+  <button class="toTop" id="toTop" aria-label="ऊपर जाएँ">↑</button>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const total = slides.children.length;
+    let current = 0, playing = true;
+    function showSlide(){ slides.style.transform = `translateX(-${current * 100}%)`; }
+    function move(step){ current = (current + step + total) % total; showSlide(); }
+    document.getElementById('prev').addEventListener('click',()=>move(-1));
+    document.getElementById('next').addEventListener('click',()=>move(1));
+    document.getElementById('pause').addEventListener('click',function(){playing=!playing;this.textContent=playing?'Ⅱ':'▶';});
+    setInterval(()=>{if(playing)move(1)},5000);
+
+    const headlines = [
+      'जिला शहडोल की आधिकारिक सूचनाएँ, घोषणाएँ और नवीनतम समाचार यहाँ प्रदर्शित होंगे।',
+      'भर्ती, निविदा और जनहित सूचनाओं के लिए संबंधित विभाग की सूचना देखें।',
+      'नागरिक सेवाओं और महत्वपूर्ण संपर्कों की जानकारी इस पोर्टल पर उपलब्ध कराएँ।'
+    ];
+    let newsIndex=0;
+    function showNews(){document.getElementById('newsText').textContent=headlines[newsIndex]}
+    document.getElementById('newsPrev').onclick=()=>{newsIndex=(newsIndex+headlines.length-1)%headlines.length;showNews()};
+    document.getElementById('newsNext').onclick=()=>{newsIndex=(newsIndex+1)%headlines.length;showNews()};
+
+    document.getElementById('hamb').addEventListener('click',()=>document.getElementById('navinner').classList.toggle('open'));
+    document.getElementById('toTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    document.getElementById('searchForm').addEventListener('submit',e=>{
+      e.preventDefault(); const q=document.getElementById('searchInput').value.trim().toLowerCase();
+      if(!q)return; const targets=[...document.querySelectorAll('main section, footer')];
+      const match=targets.find(el=>el.innerText.toLowerCase().includes(q));
+      if(match)match.scrollIntoView({behavior:'smooth'});else alert('इस डेमो पेज पर यह जानकारी नहीं मिली।');
+    });
+  </script>
+</body>
+</html>
