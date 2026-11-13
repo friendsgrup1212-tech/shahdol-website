@@ -40,6 +40,22 @@
     .services{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.service{padding:22px 12px;border:1px solid #e6e0d4;border-radius:8px;text-align:center;background:#fffaf0}.service .ico{font-size:30px}.service h3{font-size:17px;margin:10px 0 4px}.service p{font-size:13px;color:#666;margin:0}
     footer{background:#28231a;color:#eee;padding:35px 15px 18px}.foot{max-width:1160px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot h3{color:#f0c66c}.foot p,.foot a{font-size:14px;color:#ddd;line-height:1.9}.copyright{text-align:center;border-top:1px solid #554c3b;margin:25px auto 0;padding-top:16px;font-size:12px;color:#ccc;max-width:1160px}
     .toTop{position:fixed;right:25px;bottom:25px;width:43px;height:43px;border:0;border-radius:50%;background:#9b6900;color:white;font-size:22px;box-shadow:0 2px 10px #0004;cursor:pointer;z-index:8}
+
+    .detail-page{display:none;max-width:1160px;margin:34px auto 60px;padding:0 12px}
+    .detail-page.active{display:block}
+    .detail-breadcrumb{font-size:14px;color:#777;margin-bottom:18px}
+    .detail-breadcrumb a{color:var(--brown);font-weight:700}
+    .detail-hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .detail-hero img{width:100%;height:340px;object-fit:cover;border-radius:9px;box-shadow:0 4px 18px #0002}
+    .detail-copy h1{font-size:32px;margin:0 0 16px;color:var(--brown)}
+    .detail-category{background:#fff2d8;border-left:4px solid var(--gold);padding:12px 15px;border-radius:4px;line-height:1.8;margin-bottom:18px}
+    .detail-copy p{line-height:2;color:#444;font-size:16px;margin:0 0 14px}
+    .detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .detail-actions a{display:inline-block;background:var(--brown);color:#fff;padding:11px 17px;border-radius:5px}
+    .detail-actions a.secondary{background:#f2eadc;color:var(--brown)}
+    .detail-note{margin-top:28px;background:#f8f8f8;border:1px solid #e6e6e6;border-radius:8px;padding:18px;line-height:1.8;color:#555}
+    @media(max-width:700px){.detail-hero{grid-template-columns:1fr}.detail-hero img{height:240px}.detail-copy h1{font-size:26px}}
+
     @media(max-width:900px){.masthead{grid-template-columns:1fr 1fr}.search{grid-column:1/-1;grid-row:2}.digital{grid-column:2;grid-row:1}.navinner{flex-wrap:wrap}.navinner>a,.navbtn{display:none}.navinner.open>a,.navinner.open .navbtn{display:block;width:100%;text-align:left}.hamb{display:block}.hero{height:350px}.quicklinks{grid-template-columns:repeat(3,1fr);padding:0 12px}.cards{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.topline{font-size:10px}.masthead{gap:10px;min-height:95px}.seal{width:55px;height:55px;font-size:21px}.brand-hi,.brand-en{font-size:16px}.digital{font-size:13px}.hero{height:270px}.slide-caption{font-size:22px;left:18px}.ticker{margin:18px 12px 0}.ticker strong{min-width:112px;font-size:16px;padding:13px 9px}.ticker p{font-size:12px;padding:0 8px}.ticker button{padding:0 7px}.quicklinks{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}.quick{font-size:16px;min-height:75px}.about-grid,.cards,.foot{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.section-title{font-size:23px}}
   </style>
@@ -65,6 +81,31 @@
   </nav>
 
   <main id="home">
+
+    <section class="detail-page" id="sarsiPage">
+      <div class="detail-breadcrumb"><a href="#home" class="back-home">मुख्य पृष्ठ</a> / पर्यटन स्थल / सरसी आइलैंड</div>
+      <div class="detail-hero">
+        <img src="https://cdn.s3waas.gov.in/s354229abfcfa5649e7003b83dd4755294/uploads/2025/05/2025052395-300x161.jpeg" alt="सरसी आइलैंड">
+        <div class="detail-copy">
+          <h1>सरसी आइलैंड</h1>
+          <div class="detail-category"><strong>श्रेणी</strong><br>एडवेंचर, प्राकृतिक / मनोहर सौंदर्य, मनोरंजक</div>
+          <p>एमपीटी सरसी आइलैंड रिज़ॉर्ट एक खूबसूरत द्वीप पर बसा एक शांत स्थान है, जो प्रकृति के बीच शांति और सुकून की तलाश करने वालों के लिए एक आदर्श स्थान है। केवल नाव से ही पहुँचा जा सकने वाला यह रिज़ॉर्ट रोज़मर्रा की ज़िंदगी की भागदौड़ से दूर, एक अनोखा और एकांत अनुभव प्रदान करता है।</p>
+          <p>मेहमान शाम 5:30 बजे तक उपलब्ध एक सुंदर नाव की सवारी करके रिज़ॉर्ट तक पहुँच सकते हैं। एक सहज और परेशानी मुक्त आगमन सुनिश्चित करने के लिए, हम आपको अपनी यात्रा की योजना तदनुसार बनाने की सलाह देते हैं।</p>
+        </div>
+      </div>
+      <div class="detail-note">
+        <strong>कैसे पहुँचें?</strong><br>
+        यदि आप शहडोल से यात्रा कर रहे हैं, तो 130 किमी की ड्राइव आपको मार्कंडेय घाट ले जाएगी, जहाँ आप पानी और हरे-भरे परिदृश्यों के लुभावने दृश्यों से घिरे 20 मिनट की रमणीय नाव की सवारी कर सकते हैं।
+      </div>
+      <div class="detail-note">
+        अपनी आश्चर्यजनक प्राकृतिक सुंदरता और शांत वातावरण के साथ, एमपीटी सरसी आइलैंड रिज़ॉर्ट उन लोगों के लिए आदर्श स्थान है जो एक विशेष द्वीप स्वर्ग में आराम करना और प्रकृति के साथ फिर से जुड़ना चाहते हैं।
+      </div>
+      <div class="detail-actions">
+        <a href="#tourism" class="back-home">← पर्यटन स्थलों पर वापस जाएँ</a>
+        <a class="secondary" href="https://www.google.com/maps/search/?api=1&query=Sarsi+Island+Resort+Madhya+Pradesh" target="_blank" rel="noopener">मैप पर देखें ↗</a>
+      </div>
+    </section>
+
     <section class="hero" aria-label="शहडोल की झलक">
       <div class="slides" id="slides">
         <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1606293926075-69a00db9f6c8?auto=format&fit=crop&w=1800&q=85')"><div class="slide-caption">शहडोल — संस्कृति और विरासत</div></div>
@@ -93,7 +134,7 @@
     <section class="section" id="tourism">
       <h2 class="section-title">प्रमुख पर्यटन स्थल</h2>
       <div class="cards">
-        <article class="info-card"><img src="https://images.unsplash.com/photo-1606293926075-69a00db9f6c8?auto=format&fit=crop&w=800&q=80" alt="मंदिर और विरासत"><h3>विरासत स्थल</h3><p>शहडोल और आसपास के ऐतिहासिक एवं सांस्कृतिक स्थलों को जानें।</p><a class="read" href="#contact">और जानें →</a></article>
+        <article class="info-card"><img src="https://images.unsplash.com/photo-1606293926075-69a00db9f6c8?auto=format&fit=crop&w=800&q=80" alt="मंदिर और विरासत"><h3>विरासत स्थल</h3><p>शहडोल और आसपास के ऐतिहासिक एवं सांस्कृतिक स्थलों को जानें।</p><a class="read" href="#sarsi-island" data-page="sarsi-island">और जानें →</a></article>
         <article class="info-card"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="हरे-भरे जंगल"><h3>प्राकृतिक स्थल</h3><p>जिले के आसपास के हरित क्षेत्रों और प्राकृतिक सौंदर्य का आनंद लें।</p><a class="read" href="#contact">और जानें →</a></article>
         <article class="info-card"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="पहाड़ों का दृश्य"><h3>घूमने की जगहें</h3><p>अपनी यात्रा की योजना बनाने के लिए स्थानीय पर्यटन जानकारी देखें।</p><a class="read" href="#contact">और जानें →</a></article>
       </div>
@@ -121,6 +162,19 @@
   <button class="toTop" id="toTop" aria-label="ऊपर जाएँ">↑</button>
 
   <script>
+
+    function renderRoute(){
+      const isSarsi = location.hash === '#sarsi-island';
+      document.getElementById('sarsiPage').classList.toggle('active', isSarsi);
+      [...document.querySelectorAll('#home > section:not(#sarsiPage), #home > .ticker, #home > .quicklinks')].forEach(el=>{
+        el.style.display = isSarsi ? 'none' : '';
+      });
+      document.querySelector('.toTop').style.display = isSarsi ? 'block' : '';
+      if(isSarsi) window.scrollTo({top:0,behavior:'instant'});
+    }
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+
     const slides = document.getElementById('slides');
     const total = slides.children.length;
     let current = 0, playing = true;
