@@ -56,6 +56,22 @@
     .detail-note{margin-top:28px;background:#f8f8f8;border:1px solid #e6e6e6;border-radius:8px;padding:18px;line-height:1.8;color:#555}
     @media(max-width:700px){.detail-hero{grid-template-columns:1fr}.detail-hero img{height:240px}.detail-copy h1{font-size:26px}}
 
+
+    .navinner{overflow-x:auto;scrollbar-width:thin}
+    .navinner>a{font-size:13px;padding-left:10px;padding-right:10px}
+    .content-page{display:none;max-width:1160px;margin:34px auto 60px;padding:0 12px;min-height:420px}
+    .content-page.active{display:block}
+    .content-page h1{font-size:30px;color:var(--brown);margin:0 0 20px;border-left:6px solid var(--gold);padding-left:14px}
+    .page-intro{font-size:16px;line-height:2;color:#555;margin:0 0 24px}
+    .page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .page-tile{border:1px solid #e8e1d5;border-radius:8px;padding:18px;background:#fff;box-shadow:0 2px 9px #0000000a}
+    .page-tile h3{margin:0 0 8px;color:var(--brown);font-size:18px}
+    .page-tile p{margin:0;color:#666;line-height:1.8;font-size:14px}
+    .page-back{display:inline-block;margin-top:22px;background:var(--brown);color:white;padding:10px 16px;border-radius:5px}
+    .page-warning{font-size:13px;color:#806022;background:#fff4dc;border:1px solid #f0dfb8;padding:12px 15px;border-radius:6px;margin-top:20px}
+    @media(max-width:900px){.navinner{overflow:visible}.page-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.page-grid{grid-template-columns:1fr}.content-page h1{font-size:24px}.navinner>a{font-size:14px}}
+
     @media(max-width:900px){.masthead{grid-template-columns:1fr 1fr}.search{grid-column:1/-1;grid-row:2}.digital{grid-column:2;grid-row:1}.navinner{flex-wrap:wrap}.navinner>a,.navbtn{display:none}.navinner.open>a,.navinner.open .navbtn{display:block;width:100%;text-align:left}.hamb{display:block}.hero{height:350px}.quicklinks{grid-template-columns:repeat(3,1fr);padding:0 12px}.cards{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.topline{font-size:10px}.masthead{gap:10px;min-height:95px}.seal{width:55px;height:55px;font-size:21px}.brand-hi,.brand-en{font-size:16px}.digital{font-size:13px}.hero{height:270px}.slide-caption{font-size:22px;left:18px}.ticker{margin:18px 12px 0}.ticker strong{min-width:112px;font-size:16px;padding:13px 9px}.ticker p{font-size:12px;padding:0 8px}.ticker button{padding:0 7px}.quicklinks{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}.quick{font-size:16px;min-height:75px}.about-grid,.cards,.foot{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.section-title{font-size:23px}}
   </style>
@@ -63,7 +79,7 @@
 <body>
   <div class="topline"><span class="flag">🇮🇳</span> मध्यप्रदेश शासन <span>Government of Madhya Pradesh</span></div>
   <header class="masthead">
-    <a class="brand" href="#">
+    <a class="brand" href="#home">
       <div class="seal" aria-hidden="true">श</div>
       <div><div class="brand-hi">जिला शहडोल</div><div class="brand-en">District Shahdol</div></div>
     </a>
@@ -74,9 +90,17 @@
   <nav>
     <div class="navinner" id="navinner">
       <a class="active" href="#home">मुख्य पृष्ठ</a>
-      <a href="#about">जिले के बारे में</a><a href="#services">नागरिक सेवाएँ</a>
-      <a href="#tourism">पर्यटन स्थल</a><a href="#news">समाचार</a>
-      <a href="#contact">संपर्क करें</a><button class="hamb" id="hamb" aria-label="मेन्यू खोलें">☰</button>
+      <a href="#page-about">जिले के बारे में</a>
+      <a href="#page-directory">निर्देशिका</a>
+      <a href="#page-revenue">राजस्व अधिकारियों से संपर्क करें</a>
+      <a href="#page-covid">कोविड 19 हेल्प नंबर</a>
+      <a href="#page-departments">विभाग</a>
+      <a href="#page-tourism">पर्यटन</a>
+      <a href="#page-forms">फॉर्म</a>
+      <a href="#page-documents">दस्तावेज</a>
+      <a href="#page-notices">नोटिस</a>
+      <a href="#page-services">नागरिक सेवाएँ</a>
+      <button class="hamb" id="hamb" aria-label="मेन्यू खोलें">☰</button>
     </div>
   </nav>
 
@@ -105,6 +129,8 @@
         <a class="secondary" href="https://www.google.com/maps/search/?api=1&query=Sarsi+Island+Resort+Madhya+Pradesh" target="_blank" rel="noopener">मैप पर देखें ↗</a>
       </div>
     </section>
+
+    <section class="content-page" id="contentPage"></section>
 
     <section class="hero" aria-label="शहडोल की झलक">
       <div class="slides" id="slides">
@@ -163,14 +189,100 @@
 
   <script>
 
+    const pageContent = {
+      about: {
+        title: 'जिले के बारे में',
+        intro: 'शहडोल मध्यप्रदेश के पूर्वी भाग में स्थित एक जिला है। इस पेज पर जिले का परिचय, भौगोलिक स्थिति, इतिहास, संस्कृति और प्रशासन से जुड़ी जानकारी व्यवस्थित रूप से जोड़ी जा सकती है।',
+        cards: [['जिला परिचय','शहडोल जिले की सामान्य जानकारी, मुख्यालय और स्थानीय विशेषताएँ।'],['इतिहास एवं संस्कृति','जिले की ऐतिहासिक विरासत, परंपराएँ और सांस्कृतिक पहचान।'],['भूगोल','प्राकृतिक परिवेश, मौसम और आसपास के प्रमुख क्षेत्र।']]
+      },
+      directory: {
+        title: 'निर्देशिका',
+        intro: 'इस पेज पर जिला कार्यालयों, अधिकारियों और सार्वजनिक संस्थानों की संपर्क निर्देशिका उपलब्ध कराई जा सकती है।',
+        cards: [['जिला प्रशासन','कलेक्टर कार्यालय और जिला प्रशासन से संबंधित संपर्क विवरण।'],['जनपद एवं स्थानीय निकाय','जनपद पंचायत, नगर निकाय और स्थानीय कार्यालयों की जानकारी।'],['महत्वपूर्ण कार्यालय','विभिन्न सरकारी कार्यालयों के पते और सत्यापित संपर्क विवरण।']]
+      },
+      revenue: {
+        title: 'राजस्व अधिकारियों से संपर्क करें',
+        intro: 'राजस्व संबंधी सहायता के लिए संबंधित तहसील और राजस्व कार्यालय से संपर्क करें। आधिकारिक उपयोग से पहले सभी नाम और संपर्क विवरण सत्यापित करके यहाँ अपडेट करें।',
+        cards: [['जिला राजस्व कार्यालय','जिला स्तर के राजस्व कार्यों के लिए कार्यालय विवरण।'],['तहसील कार्यालय','संबंधित तहसील कार्यालय का पता और संपर्क जानकारी।'],['राजस्व सेवाएँ','नामांतरण, सीमांकन और अन्य राजस्व सेवाओं की जानकारी।']]
+      },
+      covid: {
+        title: 'कोविड 19 हेल्प नंबर',
+        intro: 'यहाँ स्वास्थ्य विभाग और आपातकालीन सहायता से जुड़े वर्तमान और सत्यापित हेल्पलाइन नंबर प्रकाशित करें।',
+        cards: [['स्वास्थ्य सहायता','जिला स्वास्थ्य विभाग की आधिकारिक सहायता जानकारी।'],['आपातकालीन सेवा','केवल सत्यापित और वर्तमान आपातकालीन संपर्क नंबर यहाँ जोड़ें।'],['स्वास्थ्य परामर्श','स्वास्थ्य केंद्रों और संबंधित सरकारी सेवाओं की जानकारी।']]
+      },
+      departments: {
+        title: 'विभाग',
+        intro: 'जिला स्तर पर संचालित सरकारी विभागों और उनकी सेवाओं की जानकारी इस पेज पर रखी जा सकती है।',
+        cards: [['जिला पंचायत','पंचायत एवं ग्रामीण विकास से संबंधित जानकारी।'],['शिक्षा विभाग','विद्यालय, शिक्षा योजनाएँ और विभागीय सूचनाएँ।'],['स्वास्थ्य विभाग','अस्पताल, स्वास्थ्य केंद्र और जनस्वास्थ्य सेवाएँ।'],['महिला एवं बाल विकास','महिला, बाल कल्याण और पोषण संबंधी योजनाएँ।'],['कृषि विभाग','कृषि सेवाएँ, योजनाएँ और किसान संबंधी जानकारी।'],['पुलिस विभाग','पुलिस प्रशासन और नागरिक सहायता की जानकारी।']]
+      },
+      tourism: {
+        title: 'पर्यटन स्थल',
+        intro: 'शहडोल जिले और आसपास के पर्यटन स्थलों, प्राकृतिक स्थानों और सांस्कृतिक धरोहरों की जानकारी। नीचे सरसी आइलैंड का विवरण खोलें।',
+        cards: [['सरसी आइलैंड','प्रकृति के बीच स्थित द्वीपीय रिसॉर्ट और बोट राइड का अनुभव।'],['प्राकृतिक स्थल','जिले के आसपास के प्राकृतिक और दर्शनीय स्थान।'],['ऐतिहासिक स्थल','स्थानीय इतिहास और सांस्कृतिक विरासत से जुड़े स्थान।']],
+        links: [['सरसी आइलैंड का विवरण','#sarsi-island']]
+      },
+      forms: {
+        title: 'फॉर्म',
+        intro: 'नागरिकों की सुविधा के लिए विभिन्न आवेदन फॉर्म और उनके आधिकारिक डाउनलोड लिंक यहाँ जोड़े जा सकते हैं।',
+        cards: [['प्रमाण पत्र आवेदन','आय, जाति, निवास आदि प्रमाण पत्रों के आवेदन की जानकारी।'],['शिकायत आवेदन','नागरिक शिकायत दर्ज करने से संबंधित फॉर्म।'],['अन्य आवेदन','विभागवार उपलब्ध आवेदन फॉर्म और निर्देश।']]
+      },
+      documents: {
+        title: 'दस्तावेज',
+        intro: 'जिला प्रशासन द्वारा जारी सार्वजनिक दस्तावेज, आदेश, दिशा-निर्देश और डाउनलोड योग्य फाइलें यहाँ व्यवस्थित की जा सकती हैं।',
+        cards: [['जिला प्रोफाइल','जिले से संबंधित परिचयात्मक दस्तावेज।'],['आदेश एवं परिपत्र','विभागीय आदेश और सार्वजनिक परिपत्र।'],['रिपोर्ट एवं प्रकाशन','प्रकाशित रिपोर्ट, पुस्तिकाएँ और अन्य दस्तावेज।']]
+      },
+      notices: {
+        title: 'नोटिस एवं घोषणाएँ',
+        intro: 'भर्ती, निविदा, सार्वजनिक सूचना और जिला प्रशासन की घोषणाओं के लिए यह सेक्शन है। केवल सत्यापित और वर्तमान नोटिस प्रकाशित करें।',
+        cards: [['भर्ती सूचना','विभागों द्वारा जारी भर्ती संबंधी नोटिस।'],['निविदा','सरकारी निविदाओं और खरीद संबंधी सूचनाएँ।'],['जनहित सूचना','नागरिकों के लिए महत्वपूर्ण घोषणाएँ और आदेश।']]
+      },
+      services: {
+        title: 'नागरिक सेवाएँ',
+        intro: 'नागरिकों को सरकारी सेवाओं तक पहुँचने में सहायता देने के लिए यह पेज बनाया गया है। संबंधित सेवाओं के आधिकारिक पोर्टल लिंक यहाँ जोड़ें।',
+        cards: [['प्रमाण पत्र','आय, जाति, निवास और अन्य प्रमाण पत्र संबंधी जानकारी।'],['शिकायत एवं सुझाव','समस्या या सुझाव दर्ज करने की प्रक्रिया।'],['पेंशन एवं योजनाएँ','पात्रता, आवेदन प्रक्रिया और योजनाओं की जानकारी।'],['भूमि अभिलेख','भूमि रिकॉर्ड और राजस्व सेवाओं की जानकारी।'],['जन्म-मृत्यु पंजीकरण','पंजीकरण प्रक्रिया और संबंधित कार्यालय।'],['ऑनलाइन सेवाएँ','सरकारी ऑनलाइन पोर्टल और उपयोगी लिंक।']]
+      }
+    };
+
+    function renderContentPage(key){
+      const data = pageContent[key];
+      const host = document.getElementById('contentPage');
+      if(!data){host.innerHTML='';return;}
+      const cards = (data.cards || []).map(item =>
+        `<article class="page-tile"><h3>${item[0]}</h3><p>${item[1]}</p></article>`
+      ).join('');
+      const links = (data.links || []).map(item =>
+        `<a class="page-back" href="${item[1]}">${item[0]} →</a>`
+      ).join('');
+      host.innerHTML = `
+        <div class="detail-breadcrumb"><a href="#home">मुख्य पृष्ठ</a> / ${data.title}</div>
+        <h1>${data.title}</h1>
+        <p class="page-intro">${data.intro}</p>
+        <div class="page-grid">${cards}</div>
+        ${links}
+        <div class="page-warning">नोट: यह एक डेमो वेबसाइट है। यहाँ दिए गए सेक्शन नमूना सामग्री हैं। आधिकारिक उपयोग से पहले वास्तविक सरकारी जानकारी, दस्तावेज़, लिंक और संपर्क नंबर सत्यापित करके जोड़ें।</div>
+        <a class="page-back" href="#home">← मुख्य पृष्ठ पर वापस जाएँ</a>
+      `;
+    }
+
     function renderRoute(){
-      const isSarsi = location.hash === '#sarsi-island';
+      const hash = location.hash || '#home';
+      const isSarsi = hash === '#sarsi-island';
+      const pageMatch = hash.match(/^#page-([a-z]+)$/);
+      const pageKey = pageMatch ? pageMatch[1] : null;
+      const isContentPage = !!(pageKey && pageContent[pageKey]);
+      const isHome = !isSarsi && !isContentPage;
       document.getElementById('sarsiPage').classList.toggle('active', isSarsi);
-      [...document.querySelectorAll('#home > section:not(#sarsiPage), #home > .ticker, #home > .quicklinks')].forEach(el=>{
-        el.style.display = isSarsi ? 'none' : '';
+      document.getElementById('contentPage').classList.toggle('active', isContentPage);
+      renderContentPage(pageKey);
+      [...document.querySelectorAll('#home > section:not(#sarsiPage):not(#contentPage), #home > .ticker, #home > .quicklinks')].forEach(el=>{
+        el.style.display = isHome ? '' : 'none';
       });
-      document.querySelector('.toTop').style.display = isSarsi ? 'block' : '';
-      if(isSarsi) window.scrollTo({top:0,behavior:'instant'});
+      document.querySelector('.toTop').style.display = 'block';
+      document.querySelectorAll('#navinner a').forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === hash);
+      });
+      if(!isHome) window.scrollTo({top:0,behavior:'instant'});
+      else window.scrollTo({top:0,behavior:'instant'});
     }
     window.addEventListener('hashchange', renderRoute);
     renderRoute();
